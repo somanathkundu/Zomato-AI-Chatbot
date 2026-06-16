@@ -1,7 +1,6 @@
 {
   "name": "Zomato AI Chef",
   "version": 2,
-  "public": true,
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": "static",
