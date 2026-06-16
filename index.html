@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zomato AI Chef — Mood-Based Dish Suggester</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-icon">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M8.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm4 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z"/></svg>
+  </div>
+  <div>
+    <div class="topbar-name">Zomato AI Chef</div>
+    <div class="topbar-sub">Smart food suggestions for you</div>
+  </div>
+  <div class="topbar-status">
+    <div class="status-dot"></div>
+    System Ready
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- MOOD BANNER -->
+  <div class="mood-banner">
+    <p>Pick your mood, choose a dish, then checkout when your cart feels right.</p>
+    <div class="mood-pills">
+      <button class="mood-pill" onclick="sendMsg('I\'m craving something spicy 🌶️')">🌶️ Spicy</button>
+      <button class="mood-pill" onclick="sendMsg('I want comfort food')">🫕 Comfort food</button>
+      <button class="mood-pill" onclick="sendMsg('I want a healthy dinner')">🥗 Healthy</button>
+      <button class="mood-pill" onclick="sendMsg('Something sweet for dessert')">🍮 Dessert</button>
+      <button class="mood-pill" onclick="sendMsg('I\'m very hungry, something filling')">🍛 Very hungry</button>
+      <button class="mood-pill" onclick="sendMsg('Light snack please')">🧆 Light snack</button>
+    </div>
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat" id="chat">
+    <div class="date-sep">Today</div>
+    <!-- Welcome message -->
+    <div class="msg-row" id="welcome">
+      <div class="avatar bot">🍽️</div>
+      <div class="bubble-wrap">
+        <div class="bubble-name">Zomato AI</div>
+        <div class="bubble bot">
+          Hey there! 👋 I'm your Zomato AI Chef.<br><br>
+          Tell me your <strong>mood or craving</strong>, and I'll suggest the best dishes you can add to your cart.
+          <div class="quick-pills">
+            <button class="qpill" onclick="sendMsg('I\'m craving something spicy')">🌶️ Spicy</button>
+            <button class="qpill" onclick="sendMsg('Suggest comfort food')">🫕 Comfort</button>
+            <button class="qpill" onclick="sendMsg('I want a healthy dinner')">🥗 Healthy</button>
+            <button class="qpill" onclick="sendMsg('Light snack please')">🧆 Snack</button>
+          </div>
+        </div>
+        <div class="bubble-time" id="welcome-time"></div>
+      </div>
+    </div>
+    <!-- Typing indicator (hidden by default) -->
+    <div class="msg-row" id="typing-row" style="display:none">
+      <div class="avatar bot">🍽️</div>
+      <div class="bubble-wrap">
+        <div class="bubble bot">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT -->
+  <div class="input-area">
+    <div class="input-box">
+      <input type="text" id="userInput" placeholder="Tell me your mood or craving..." autocomplete="off" onkeydown="if(event.key==='Enter') sendMsg()" />
+      <button class="send-btn" onclick="sendMsg()" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+    <div class="footer-note">Powered by Claude AI · Zomato AI Chef Demo</div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
