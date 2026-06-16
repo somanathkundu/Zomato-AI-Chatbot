@@ -1,17 +1,10 @@
 {
   "name": "Zomato AI Chef",
   "version": 2,
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "framework": "static",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/api/claude",
+      "destination": "api/claude.js"
     }
   ],
   "headers": [
